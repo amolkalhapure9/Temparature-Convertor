@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature convertor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            background: url(pexels-pixabay-531880.jpg) no-repeat center center/cover;
+        }
+        body{
+         
+
+        }
+         div.main{
+               margin: auto;
+    margin-top: 124px;
+    width: 429px;
+    /* border: 2px solid red; */
+    text-align: center;
+    padding-bottom:119px;
+    border-radius: 17px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 7px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+
+        }
+
+        @keyframes amol{
+            from{
+                color:red;
+            }
+            to{
+                color:rgb(250, 250, 255);
+              
+                color:blueviolet;
+            }
+
+        }
+        div.main h1{
+            position: relative;
+            top: 26px;
+            font-family: 'Poppins', sans-serif;
+            color:red;
+            animation-name: amol;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 1px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        }
+        div.temperature{
+            margin-top: 35px;
+    width: 100%;
+    /* border: 2px solid; */
+    padding-bottom:78px;
+        }
+        div.temperature div{
+            margin-bottom: 15px;
+            position: relative;
+             top: 41px;
+        }
+        div.temperature div input{
+            width: 365px;
+    font-size: 19px;
+    border-radius: 6px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 1px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  
+        }
+        div.temperature div select{
+            width: 365px;
+    font-size: 19px;
+    border-radius: 6px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 1px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        }
+        button{
+            border-radius: 3px;
+    font-size: 17px;
+    width: 76px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 1px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        }
+        div hr{
+            width: 136px;
+    margin-left: 38px;
+    margin-top: 13px;
+        }
+        .select{
+            color:rgb(132, 132, 137);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main">
+        <h1>Temparature Convertor</h1>
+        <div class="temperature">
+            <div><input type="number" id="user" placeholder=" Temperature in Celcius" required  style="color:white">
+               
+            
+            <div><select name="" id="selected" class="select"  style="color:white">
+                <option value=""  >select Type</option>
+                <option value="Kelvin" style="color:rgb(53, 49, 49)">Kelvin</option>
+                <option value="Celcius" style="color:rgb(53, 49, 49)">Celcius</option>
+                <option value="fahrenheit" style="color:rgb(53, 49, 49)">fahrenheit</option>
+            </select></div>
+
+            <div class="button" ><button id="convert" onclick="convertTemp()"  style="color:white">Convert</button></div>
+           <div><input type="number" id="user2" placeholder="Result" style="color:white" onclick="ansRevert()"></div> 
+           <p id="ans"></p>
+         
+
+            
+        </div>
+
+
+    </div>
+
+    
+</body>
+<script>
+  
+
+    const convertTemp= () => {
+        let a=document.getElementById('user').value;
+        let a1=parseInt(a);
+
+
+        let b=document.getElementById('selected').value;
+        
+        if(b=='Celcius'){
+            let ans=a1;
+            document.getElementById('user2').value=ans;    
+        }
+        else if(b=='Kelvin')
+        {
+            let ans=a1-273.15;
+            document.getElementById('user2').value=ans;
+        }
+        else if(b=="fahrenheit"){
+           
+            let ans=(a1*9/5)+32;
+            document.getElementById('user2').value=ans;
+
+        }
+       
+        else{
+            alert("Please enter valid data");
+        }
+    }
+
+    const ansRevert= () => {
+        let a=document.getElementById('user2').value;
+        let a1=parseInt(a);
+
+
+        let b=document.getElementById('selected').value;
+        
+        if(b=='Celcius'){
+            let ans=a1;
+            document.getElementById('user').value=ans;    
+        }
+        else if(b=='Kelvin')
+        {
+            let ans=a1+273.15;
+            document.getElementById('user').value=ans;
+        }
+        else if(b=="fahrenheit"){
+            let ans=(a1-32)*(5/9);
+            document.getElementById('user').value=ans;
+
+        }
+        else{
+            alert("Please enter valid data");
+        }
+    }
+</script>
+</html>
